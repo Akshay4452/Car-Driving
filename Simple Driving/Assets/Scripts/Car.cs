@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float acceleration = 2.0f;
     // Update is called once per frame
     void Update()
     {
+        // Acceleration code
+        speed += acceleration * Time.deltaTime;
         
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
