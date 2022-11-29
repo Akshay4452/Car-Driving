@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Car : MonoBehaviour
@@ -23,5 +23,12 @@ public class Car : MonoBehaviour
     {
         steerValue = value;
         // transform.Rotate(0f, steerValue * turnSpeed * Time.deltaTime, 0f);
+    }
+    private void OnTriggerEnter(Collider other) 
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            SceneManager.LoadScene("Scene_MainMenu");
+        }
     }
 }
