@@ -7,8 +7,7 @@ public class ScoreSystem : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
     private float score;
-    
-
+    public const string highScoreKey = "HighScore";
     // Update is called once per frame
     void Update()
     {
@@ -16,7 +15,7 @@ public class ScoreSystem : MonoBehaviour
         {
             // score = player time in the game
             score += Time.deltaTime;
-            scoreText.text = Mathf.Floor(score).ToString();
+            scoreText.text = Mathf.FloorToInt(score).ToString();
         }
         else
         {
@@ -24,5 +23,15 @@ public class ScoreSystem : MonoBehaviour
             return;
         }
         
+    }
+    private void OnDestroy() 
+    {
+        // this method will get invoked once we exit the game scene (game is finished)
+        int currentHighScore = PlayerPrefs.GetInt(highScoreKey, 0);
+        if(score > currentHighScore)
+        {
+            // if current score is higher than prev high score then it will update highScoreKey constant declared above
+            PlayerPrefs.SetInt(highScoreKey, Mathf.FloorToInt(score));
+        }    
     }
 }
