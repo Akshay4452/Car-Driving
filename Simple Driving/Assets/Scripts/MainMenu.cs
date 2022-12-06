@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private int maxEnergy;
+    [SerializeField] private TMP_Text energyText;
     [SerializeField] private int energyRechargeDuration;
     private int energy;
     private const string EnergyKey = "Energy"; // 
@@ -36,10 +37,28 @@ public class MainMenu : MonoBehaviour
                 PlayerPrefs.SetInt(EnergyKey, energy);
             }
         }
+
+        energyText.text = $"Play ({energy})";
     }
 
     public void Play()
     {
+        // check the energy available
+        if(energy < 1) {return;}
+        // else Decrease the energy by 1
+        energy --;
+
+        PlayerPrefs.SetInt(EnergyKey, energy);
+
+        if (energy == 0) 
+        {
+            // Refill the energy after 1 min
+            DateTime energyReady = DateTime.Now.AddMinutes(energyRechargeDuration);
+            PlayerPrefs.SetString(EnergyReadyKey, energyReady.ToString());
+            Debug.Log("Energy depleted, please come back after 1 minute");
+        }
+
         SceneManager.LoadScene("Scene_Game");
+        
     }
 }
