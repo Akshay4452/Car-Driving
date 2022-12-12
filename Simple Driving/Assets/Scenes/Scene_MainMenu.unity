@@ -525,6 +525,7 @@ MonoBehaviour:
   highScoreText: {fileID: 454398165}
   maxEnergy: 5
   energyText: {fileID: 1035340248}
+  playButton: {fileID: 253822271}
   energyRechargeDuration: 1
 --- !u!114 &742030613
 MonoBehaviour:
