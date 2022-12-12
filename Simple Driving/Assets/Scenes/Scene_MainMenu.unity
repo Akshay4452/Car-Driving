@@ -486,6 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 742030611}
   - component: {fileID: 742030612}
+  - component: {fileID: 742030613}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -525,6 +526,18 @@ MonoBehaviour:
   maxEnergy: 5
   energyText: {fileID: 1035340248}
   energyRechargeDuration: 1
+--- !u!114 &742030613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742030610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeb9d0e287e83b42b46126ddd75ebb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &901527646
 GameObject:
   m_ObjectHideFlags: 0
